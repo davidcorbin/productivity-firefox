@@ -1,0 +1,12 @@
+{
+  "title": "Productivity",
+  "name": "productivity",
+  "version": "0.0.1",
+  "description": "Send data to Productivity",
+  "main": "index.js",
+  "author": "David Corbin",
+  "url": "https://daconex.me",
+  "engines": {
+    "firefox": ">=38.0a1"
+  }
+}
