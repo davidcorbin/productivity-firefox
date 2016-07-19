@@ -1,5 +1,5 @@
 ![alt tag](https://raw.githubusercontent.com/davidcorbin/productivity-firefox/master/icons/Productivity-icon-128.png)
-# productivity-chrome
+# productivity-firefox
 Firefox extension for Productivity 
 
 ## Documentation
@@ -18,7 +18,7 @@ When events occur, the browser extension sends data to the running Productivity 
 The data transfer is done via a POST request to http://127.0.0.1:8000/productivity. 
 All data transfered is JSON in the form of:
 
-`{"status":"tab_switched","url":"https://github.com/davidcorbin/productivity-chrome/new/master?readme=1","title":"New File"}`
+`{"status":"tab_switched","url":"https://github.com/davidcorbin/productivity-firefox/new/master?readme=1","title":"New File"}`
 
 Immediately when the extension starts, it sends a POST request to Productivity desktop application with the browser user agent.
 
