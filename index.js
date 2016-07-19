@@ -13,17 +13,8 @@
   function send(data) {
     // HTTP post request
     request.Request({
-      url: "http://localhost:8000/productivity",
-      content: data,
-      onComplete: function(response) {
-        // If data received by Productivity
-        if (response.status==200) {
-          console.log("Successful: " + response.text);
-        }
-        else {
-          console.log("Error: " + response.status);
-        }
-      }
+      url: "http://127.0.0.1:8000/productivity",
+      content: data
     }).post();
   }
 
@@ -54,12 +45,7 @@
 
   // Event called after a tabs content is loaded
   tabs.on('pageshow', function(tab) {
-    // Don't send message if new tab or duplicate of previous url
-    if (tab.url=="about:blank" || tab.url=="about:newtab" || tab.url==prevUrl) {
-      return;
-    }
-    var tabdata = getTabData("tab_switched", tab.url, tab.title);
-    console.log(tabdata);
+    var tabdata = getTabData("tab_updated", tab.url, tab.title);
     send(JSON.stringify(tabdata));
     // Set previous url
     prevUrl = tab.url;
@@ -67,12 +53,7 @@
   
   // Event called when current tab is switched by user clicking another tab
   tabs.on('activate', function(tab) {
-    // Don't send message if new tab
-    if (tab.url=="about:blank" || tab.url=="about:newtab" || tab.url==prevUrl) {
-      return;
-    }
     var tabdata = getTabData("tab_switched", tab.url, tab.title);
-    console.log(tabdata);
     send(JSON.stringify(tabdata));
     prevUrl = tab.url;
   });
